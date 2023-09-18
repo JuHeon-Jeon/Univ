@@ -64,7 +64,7 @@ void poly_print(char ch[], polynomial poly)
 			printf("- %.2fx^%d ", poly.coef[i] * -1, i);
 	}
 	if (poly.coef[0] > 0)
-		printf("%.2f", poly.coef[0]);
+		printf("+ %.2f", poly.coef[0]);
 
 	printf("\n");
 }

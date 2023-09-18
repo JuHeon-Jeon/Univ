@@ -1,0 +1,4 @@
+﻿  4.c
+C:\Users\jjh92\Desktop\DataStructure\2022114979_전주헌_DS_01(1)\4\4.c(56,16): warning C4101: 'tmp' :참조되지 않은 지역 변수입니다.
+C:\Users\jjh92\Desktop\DataStructure\2022114979_전주헌_DS_01(1)\4\4.c(109): warning C4715: 'binSrch': 모든 제어 경로에서 값을 반환하지는 않습니다.
+  4.vcxproj -> C:\Users\jjh92\Desktop\DataStructure\2022114979_전주헌_DS_01(1)\Debug\4.exe

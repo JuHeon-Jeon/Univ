@@ -1,0 +1,5 @@
+﻿  4.c
+C:\Users\jjh92\Desktop\DataStructure\2022114979_전주헌_DS_02\4\4.c(15,18): warning C4244: '함수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\jjh92\Desktop\DataStructure\2022114979_전주헌_DS_02\4\4.c(21,14): warning C4047: '함수': 'int'의 간접 참조 수준이 'FILE *'과(와) 다릅니다.
+C:\Users\jjh92\Desktop\DataStructure\2022114979_전주헌_DS_02\4\4.c(21,8): warning C4024: 'exit': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+  4.vcxproj -> C:\Users\jjh92\Desktop\DataStructure\2022114979_전주헌_DS_02\Debug\4.exe

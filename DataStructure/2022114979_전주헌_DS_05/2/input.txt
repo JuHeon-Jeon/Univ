@@ -1,0 +1,14 @@
+add 1 kim
+add 23 park
+add 33 lee
+add 44 hong
+qprint
+delete
+delete
+qprint
+add 6 korea
+qprint
+qadd 77 song
+delete
+delete
+delete

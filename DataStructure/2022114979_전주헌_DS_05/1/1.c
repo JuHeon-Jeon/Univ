@@ -38,36 +38,36 @@ int main(void)
 
 	while (fgets(inputOriginal, 1000, fp))
 	{	
-	switch (determine(inputOriginal))
-	{
-	case 1: //push
-		inputToken = strtok(NULL, " ");
-		inputId = atoi(inputToken);
+		switch (determine(inputOriginal))
+		{
+		case 1: //push
+			inputToken = strtok(NULL, " ");
+			inputId = atoi(inputToken);
 
-		inputToken = strtok(NULL, " ");
-		size = strlen(inputToken);
-		if (inputToken[size - 1] == '\n')
-			inputToken[size - 1] = '\0';
-		strcpy(inputName, inputToken);
+			inputToken = strtok(NULL, " ");
+			size = strlen(inputToken);
+			if (inputToken[size - 1] == '\n')
+				inputToken[size - 1] = '\0';
+			strcpy(inputName, inputToken);
 		
-		push(inputId, inputName);
+			push(inputId, inputName);
 
-		break;
-	case 2: //pop
-		pop();
+			break;
+		case 2: //pop
+			pop();
 
-		break;
-	case 3: //sprint
-		sprint();
+			break;
+		case 3: //sprint
+			sprint();
 
-		break;
-	case 4: //quit
-		quit();
-	case 5: //error
-		wrong();
+			break;
+		case 4: //quit
+			quit();
+		case 5: //error
+			wrong();
 
-		break;
-	}
+			break;
+		}
 	}
 
 	fclose(fp);
@@ -132,7 +132,7 @@ void stackFull(void)
 	if (sRear + 1 > MAX_STACK_SIZE - 1)
 	{
 		printf("stack is full, cannot add element\n");
-		printf("current stack elements :\n");
+		printf("current stack elements :");
 		sprint();
 		exit(0);
 	}

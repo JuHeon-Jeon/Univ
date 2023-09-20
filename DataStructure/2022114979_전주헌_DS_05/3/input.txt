@@ -5,8 +5,6 @@ add 44 hong
 qprint
 delete
 add 55 korea
-qprint
-delete
 delete
 qprint
 add 6 korea

@@ -1,4 +1,3 @@
-//need more refinement
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
@@ -90,8 +89,8 @@ void push(int id, char* name)
 void pop(void)
 {
 	qEmpty();
-	
 	qFront++;
+	
 	dShift();
 }
 void qprint(void)
@@ -102,7 +101,7 @@ void qprint(void)
 }
 void quit(void)
 {
-	printf("You have quited the program\n");
+	printf("You have exited the program\n");
 	exit(0);
 }
 void wrong(void)
@@ -113,7 +112,7 @@ int qFull(void)
 {
 	if (qRear + 1 > MAX_QUEUE_SIZE - 1)
 	{
-		printf("Queue Full!\n");
+		printf("Queue Full! ");
 		printf("element not added\n");
 
 		return 1;
@@ -136,6 +135,8 @@ void dShift(void)
 		queue[i].id = queue[i + 1].id;
 		strcpy(queue[i].name, queue[i + 1].name);
 	}
+	qFront--;
+	qRear--;
 	printf("\nData Shift!\n");
 }
 int determine(char* original)

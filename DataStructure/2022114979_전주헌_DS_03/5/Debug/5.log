@@ -1,1 +1,3 @@
-﻿
+﻿  5.c
+C:\Users\jjh0421\Desktop\Univ\DataStructure\2022114979_전주헌_DS_03\5\5.c(98,7): warning C4013: 'exit'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+  5.vcxproj -> C:\Users\jjh0421\Desktop\Univ\DataStructure\2022114979_전주헌_DS_03\Debug\5.exe

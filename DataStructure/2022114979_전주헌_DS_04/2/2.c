@@ -104,7 +104,7 @@ int main(void)
 		printf("\n");
 	}
 
-	printf("A\n"); //print m2
+	printf("A\n"); //print m2 *****alphabet ERROR!******
 	for (int i = 0; i < sM2[0].row; i++)
 	{
 		for (int j = 0; j < sM2[0].col; j++)

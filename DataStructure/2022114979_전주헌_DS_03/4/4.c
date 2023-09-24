@@ -53,7 +53,7 @@ int main(void)
 	return 0;
 }
 
-void poly_print(char ch[], polynomial poly)
+void poly_print(char ch[], polynomial poly) //*****first poly +, - print ERROR!!!*****
 {
 	printf("%s = ", ch);
 	for (int i = poly.degree; i > 0; i--)

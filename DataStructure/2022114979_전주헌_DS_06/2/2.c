@@ -23,11 +23,12 @@ void path(void);
 void push(int row, int col, int dir);
 element pop();
 
+int** maze, ** mark;
+
 int main(void)
 {
 	FILE* fp = NULL;
 	int row = 0, col = 0;
-	int** maze, ** mark;
 
 	dir[0].vert = -1; dir[0].horiz = 0; //dir initialize
 	dir[1].vert = -1; dir[1].horiz = 1;
@@ -45,7 +46,7 @@ int main(void)
 		exit(stderr);
 	}
 
-	fscanf("%d, %d", &row, &col); //read row col
+	fscanf(fp, "%d %d", &row, &col); //read row col
 
 	stack = (element*)malloc(sizeof(element) * (row * col));
 
@@ -53,10 +54,12 @@ int main(void)
 	col += 2;
 
 	maze = (int**)malloc(sizeof(int*) * row);
-	*maze = (int*)malloc(sizeof(int) * col);
+	for (int i = 0; i < row; i++)
+		maze[i] = (int*)malloc(sizeof(int) * col);
 
 	mark = (int**)malloc(sizeof(int*) * row);
-	*mark = (int*)malloc(sizeof(int) * col);
+	for (int i = 0; i < row; i++)
+		mark[i] = (int*)malloc(sizeof(int) * col);
 
 	for (int i = 0; i < row; i++) //initialize maze
 		for (int j = 0; j < col; j++)
@@ -71,6 +74,9 @@ int main(void)
 		maze[0][i] = 1;
 		maze[row - 1][i] = 1;
 	}
+	for (int i = 0; i < row - 2; i++)
+		for (int j = 0; j < col - 2; j++)
+			fscanf(fp, "%d", &maze[i + 1][j + 1]);
 
 	for (int i = 0; i < row; i++) //initialize mark
 		for (int j = 0; j < col; j++)
@@ -113,6 +119,17 @@ void path(void)
 				++way;
 		}
 	}
+	if (found)
+	{
+		printf("The path is:\n");
+		printf("row col\n");
+		for (int i = 0; i <= top; i++)
+			printf("%2d%5d\n", stack[i].row, stack[i].col);
+		printf("%2d%5d\n", row, col);
+		printf("%2d%5d\n", EXIT_ROW, EXIT_COL);
+	}
+	else
+		printf("The maze does not have a path\n");
 }
 void push(int row, int col, int dir)
 {

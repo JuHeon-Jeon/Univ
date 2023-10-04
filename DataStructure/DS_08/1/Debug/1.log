@@ -1,0 +1,8 @@
+﻿  1.c
+C:\Users\jjh92\Desktop\Univ\DataStructure\DS_08\1\1.c(31,14): warning C4047: '함수': 'int'의 간접 참조 수준이 'FILE *'과(와) 다릅니다.
+C:\Users\jjh92\Desktop\Univ\DataStructure\DS_08\1\1.c(31,8): warning C4024: 'exit': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\jjh92\Desktop\Univ\DataStructure\DS_08\1\1.c(47,14): warning C4047: '함수': 'int'의 간접 참조 수준이 'FILE *'과(와) 다릅니다.
+C:\Users\jjh92\Desktop\Univ\DataStructure\DS_08\1\1.c(47,8): warning C4024: 'exit': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\jjh92\Desktop\Univ\DataStructure\DS_08\1\1.c(103,14): warning C4047: '함수': 'int'의 간접 참조 수준이 'FILE *'과(와) 다릅니다.
+C:\Users\jjh92\Desktop\Univ\DataStructure\DS_08\1\1.c(103,8): warning C4024: 'exit': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+  1.vcxproj -> C:\Users\jjh92\Desktop\Univ\DataStructure\DS_08\Debug\1.exe

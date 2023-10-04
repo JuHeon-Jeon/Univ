@@ -22,7 +22,7 @@ int main(void)
 {
 	FILE* fp = NULL;
 	int input;
-	listPointer target;
+	listPointer target = NULL;
 
 	//open file
 	if (!(fp = fopen("input.txt", "r")))
@@ -137,7 +137,7 @@ void listPrint(listPointer first)
 
 	if (now)
 	{
-		printf("The ordered list contains:\n");
+		printf("The ordered list contains:\n\n");
 		while (now)
 		{
 			printf("(%p,%7d,%p)", now, now->data, now->link);

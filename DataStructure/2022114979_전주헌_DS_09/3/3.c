@@ -12,8 +12,9 @@ typedef struct listNode {
 listPointer first = NULL;
 
 void push(int num);
-void pop(listPointer trail, listPointer target);
+void pop(listPointer* trail, listPointer* target);
 void print(void);
+void delOddNode(void);
 
 int main(void)
 {
@@ -44,10 +45,11 @@ int main(void)
 	printf("The Circularly Linked List contains:\n");
 	print();
 	//delete nodes
-
+	delOddNode();
 	//printlist
 	printf("\n\nAfter deleting nodes with odd value\n");
 	printf("\nThe Circularly Linked List contains:\n");
+	print();
 
 	return 0;
 }
@@ -74,21 +76,61 @@ void push(int num)
 		ptr->link = temp;
 	}
 }
-void pop(listPointer trail, listPointer target)
+void pop(listPointer* trail, listPointer* target)
 {
-	trail->link = target->link;
-
-	free(target);
+	if (*trail)
+	{
+		(*trail)->link = (*target)->link;
+		free(*target);
+		*target = (*trail)->link;
+	}
+	else
+	{
+		(*trail) = *target;
+		*target = (*target)->link;
+		free(*trail);
+		*trail = NULL;
+	}
 }
 void print(void)
 {
 	listPointer ptr = first;
 	int index = 0;
-	for (; ptr->link == first; ptr = ptr->link)
+	for (; ptr->link != first; ptr = ptr->link)
 	{
 		printf("(%p,%8d,%10p )", ptr, ptr->data, ptr->link);
 		index = (index + 1) % 3;
 		if (!index)
 			printf("\n");
 	}
+
+	printf("(%p,%8d,%10p )", ptr, ptr->data, ptr->link);
+	index = (index + 1) % 3;
+	if (!index)
+		printf("\n");
+}
+void delOddNode(void)
+{
+	listPointer ptr = first;
+	listPointer trail = NULL;
+
+	while (ptr->link != first)
+	{
+		if (ptr->data % 2)
+			pop(&trail, &ptr);
+		else
+		{
+			trail = ptr;
+			ptr = ptr->link;
+		}
+	}
+
+	if (ptr->data % 2)
+		pop(&trail, &ptr);
+	else
+	{
+		trail = ptr;
+		ptr = ptr->link;
+	}
+
 }

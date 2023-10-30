@@ -38,7 +38,7 @@ int main(void)
 	treePointer root = NULL;
 	//print
 	printf("the length of input string should be less than 80\n");
-	printf("input string (postfix expression) from input.txt : ");
+	printf("input string (postfix expression) : ");
 
 	//read file and make tree
 	if (!(fp = fopen("input.txt", "r")))
@@ -89,6 +89,7 @@ int main(void)
 	printf("iterative preorder traversal    : ");
 	preorder(root);
 	//postorder
+	printf("\n");
 	printf("iterative postorder traversal   : ");
 	postorder(root);
 
@@ -197,7 +198,8 @@ void postorder(treePointer ptr)
 	for (;;)
 	{
 		for (; ptr; ptr = ptr->lchild)
-			push(ptr);
+			if (ptr->value != 0)
+				push(ptr);
 		ptr = pop();
 		if (!ptr)
 			break;
@@ -205,13 +207,14 @@ void postorder(treePointer ptr)
 		temp = ptr;
 		ptr = ptr->rchild;
 
-		if (!ptr)
+		if (!ptr || ptr->value == 0)
 		{
 			ptr = temp;
-			if (!ptr)
-				break;
 			printf("%c", ptr->value);
-			ptr = NULL;
+			ptr->value = 0;
 		}
+		else
+			push(temp);
+
 	}
 }

@@ -54,18 +54,23 @@ int main(void)
 	scanf("%d", &input);
 	srand(input);
 	printf("\n\n");
-	
-	//중복체크
-	/*
+
 	for (int i = 1; i < 8; i++)
 	{
 		randNum[i] = rand() % 7 + 1;
-		printf("randNum[%d] : %d\n", i, randNum[i]);
+
+		for (int j = 1; j < i; j++)
+			if (randNum[i] == randNum[j])
+				i--;
 	}
-	*/
+	for (int i = 1; i < 8; i++)
+		printf("randNum[%d] : %d\n", i, randNum[i]);
+
+	
 	printf("\n");
 	//insert table
-
+	for (int i = 0; i < size; i++)
+		insert(ary[i]);
 	//print table
 	printf("%13s\n", "key");
 	for (int i = 0; i < 8; i++)
@@ -77,23 +82,29 @@ int main(void)
 	}
 	printf("\n");
 	//search
+	int comp;
 	while (1)
 	{
-		comparison = 0;
 		printf("input 0 to quit\n");
 		printf("key to search >> ");
-		scanf("%d", input);
+		scanf("%d", &input);
 
 		if (!input)
 			break;
 
+		comp = search(input);
+
+		if (comp)
+			printf("key : %d, the number of comparisions : %d\n\n", input, comp);
+		else
+			printf("it doesn't exist!\n\n");
 	}
 
 	return 0;
 }
 int h(int key)
 {
-	int rtn = key & 8;
+	int rtn = key % 8;
 	return rtn;
 }
 void insert(int item)
@@ -121,6 +132,8 @@ void insert(int item)
 int search(int item)
 {
 	int key = h(item);
+	rndnum = 1;
+	comparison = 0;
 
 	while (1)
 	{
@@ -128,7 +141,13 @@ int search(int item)
 
 		if (ht[key] == item)
 			break;
+		if (rndnum > 7)
+			return 0;
 
-
+		key = (h(item) + randNum[rndnum]) % 8;
+		
+		rndnum++;
 	}
+
+	return comparison;
 }
